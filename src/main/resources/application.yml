@@ -29,3 +29,20 @@ spring:
     database: 1
 domain:
   name: www.caesar.com
+
+
+ #### 授权登录相关
+
+appid: wx71bf21083cbadddc
+secret: b6054bb7670966a32f852ad25e606152
+# 回调地址说明   这里的域名vqmgwx.natappfree.cc 需要在微信公众号上授权  参考图片
+#    E:\ideapringboot\springboot-api\src\main\java\com\yxm\springbootapi\oauth2\微信oauth2.0授权域名.PNG
+redirectUri: http://vqmgwx.natappfree.cc/callback
+### 生成微信授权
+authorizedUrl: https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+###获取code后，请求以下链接获取access_token
+access_token: https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+###拉取用户信息(需scope为 snsapi_userinfo)
+userinfo: https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN
+
+
